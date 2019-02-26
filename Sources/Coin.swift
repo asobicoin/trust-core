@@ -9,7 +9,11 @@ import Foundation
 /// Supported coins.
 /// Index based on https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 public enum Coin: Int {
+#if DEBUG || TEST
+    case bitcoin = 1
+#else
     case bitcoin = 0
+#endif
     case ethereum = 60
     case ethereumClassic = 61
     case poa = 178
