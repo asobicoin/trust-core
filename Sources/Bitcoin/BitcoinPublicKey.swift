@@ -24,10 +24,12 @@ public final class BitcoinPublicKey: PublicKey {
     /// Address.
     public var address: Address {
         let publicKeyStr = data.hexString
-        let publicKeySubstr = publicKeyStr.prefix(66)
-        let publicKeyHead = String(format: "%02d", Int(publicKeySubstr.prefix(2))! - 2)
-        let publicKeyFoot = publicKeySubstr.suffix(64)
-        let publicKey = Data(hexString: publicKeyHead + publicKeyFoot)!
+        let publicKeyHead = publicKeyStr.prefix(66)
+        let lastByteStr = publicKeyStr.suffix(2)
+        let isOdd = UInt8(lastByteStr, radix: 16)! % 2 != 0
+        let prefix = isOdd ? "03" : "02"
+        let publicKeyFoot = publicKeyHead.suffix(64)
+        let publicKey = Data(hexString: prefix + publicKeyFoot)!
         let hash1 = Crypto.sha256ripemd160(publicKey)
 #if DEBUG || TEST
         let extended = Data([Bitcoin.TestNet.publicKeyHashAddressPrefix]) + hash1
