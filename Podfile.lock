@@ -3,7 +3,7 @@ PODS:
     - SipHash (~> 1.2)
   - SipHash (1.2.2)
   - SwiftLint (0.27.0)
-  - TrezorCrypto (0.0.7)
+  - TrezorCrypto (0.0.9)
 
 DEPENDENCIES:
   - BigInt (~> 3.0)
@@ -21,7 +21,7 @@ SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
-  TrezorCrypto: 73af08424b94cc59f1c7a91579da1c7403039dc7
+  TrezorCrypto: bfeea47a052dca2c77d4a39e1e183865e52de14d
 
 PODFILE CHECKSUM: 8d44f78fbd3f51bf24b2bd1431c82445e4a4cd81
 
